@@ -1,249 +1,791 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="MediCare Hospital — compassionate, modern healthcare for you and your family.">
-<title>MediCare Hospital | Healthcare</title>
-<style>
-:root{--blue:#0879c9;--blue-dark:#075b98;--navy:#12304a;--pale:#eff8ff;--text:#526579;--white:#fff;--shadow:0 12px 35px rgba(18,48,74,.09)}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:85px}
-body{font-family:Arial,Helvetica,sans-serif;color:var(--navy);line-height:1.6}
-a{color:inherit;text-decoration:none}
-button,input,select{font:inherit}
-.container{width:min(1120px,90%);margin:auto}
-section{padding:82px 0}
-header{position:sticky;top:0;z-index:20;background:#fff;box-shadow:0 2px 14px rgba(0,0,0,.06)}
-nav{height:76px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:26px;font-weight:800;color:var(--navy)}
-.logo span{color:var(--blue)}
-.logo b{color:var(--blue);margin-right:7px}
-.nav-links{display:flex;align-items:center;gap:27px;list-style:none}
-.nav-links a{font-size:14px;font-weight:700}
-.nav-links a:hover{color:var(--blue)}
-.nav-links .nav-cta{background:var(--blue);color:white;padding:11px 17px;border-radius:7px}
-.menu-btn{display:none;border:0;background:none;font-size:26px;color:var(--navy);cursor:pointer}
-.hero{background:linear-gradient(115deg,#eff8ff,#dff1ff);padding:70px 0}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:55px;align-items:center}
-.eyebrow{display:inline-block;color:var(--blue);font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
-.hero h1{font-size:clamp(39px,5.2vw,62px);line-height:1.1;margin:17px 0;color:var(--navy)}
-.hero h1 span{color:var(--blue)}
-.hero p{color:var(--text);max-width:550px;margin-bottom:25px}
-.actions{display:flex;gap:13px;flex-wrap:wrap}
-.btn{display:inline-flex;justify-content:center;align-items:center;padding:13px 20px;border:2px solid var(--blue);border-radius:7px;font-weight:700;cursor:pointer;transition:.2s}
-.btn-primary{background:var(--blue);color:#fff}
-.btn-primary:hover{background:var(--blue-dark);border-color:var(--blue-dark)}
-.btn-outline{color:var(--blue)}
-.btn-outline:hover{background:var(--blue);color:#fff}
-.hero-photo{width:100%;height:440px;object-fit:cover;border-radius:18px;box-shadow:var(--shadow)}
-.stats{display:flex;gap:35px;margin-top:35px;flex-wrap:wrap}
-.stats strong{display:block;font-size:24px;color:var(--blue)}
-.stats small{color:var(--text)}
-.section-head{text-align:center;margin:0 auto 42px;max-width:650px}
-.section-head h2,.about-copy h2,.appointment-copy h2{font-size:clamp(28px,3.5vw,38px);line-height:1.2;margin:10px 0;color:var(--navy)}
-.section-head p,.muted{color:var(--text)}
-.about-grid,.appointment-grid,.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
-.about-photo{width:100%;height:390px;object-fit:cover;border-radius:15px}
-.checks{list-style:none;margin:22px 0}
-.checks li{margin:10px 0;color:var(--text)}
-.checks li:before{content:"✓";color:var(--blue);font-weight:900;margin-right:10px}
-.services{background:var(--pale)}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:#fff;border:1px solid #e4edf5;padding:26px;border-radius:12px;box-shadow:0 5px 20px rgba(18,48,74,.035);transition:.2s}
-.card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-.card-icon{width:48px;height:48px;border-radius:12px;background:#e5f4ff;color:var(--blue);display:grid;place-items:center;font-size:24px;margin-bottom:16px}
-.card h3{margin-bottom:8px}
-.card p{color:var(--text);font-size:14px;margin-bottom:12px}
-.card a{color:var(--blue);font-weight:700;font-size:14px}
-.doctor img{width:100%;height:260px;object-fit:cover;object-position:top;border-radius:9px;margin-bottom:13px}
-.doctor{text-align:center}
-.doctor p{color:var(--blue);font-size:14px}
-.appointment{background:var(--pale)}
-.appointment-copy p{color:var(--text);margin:15px 0}
-.contact-line{margin-top:12px;color:var(--text)}
-.contact-line strong{color:var(--blue)}
-form{background:#fff;padding:30px;border-radius:13px;box-shadow:var(--shadow)}
-form h3{font-size:23px;margin-bottom:17px}
-label{display:block;font-size:13px;font-weight:700;margin:12px 0 5px}
-input,select{width:100%;padding:12px;border:1px solid #d5e0e9;border-radius:6px;background:#fff;color:var(--navy)}
-input:focus,select:focus{outline:2px solid #b8e0ff;border-color:var(--blue)}
-form button{width:100%;margin-top:18px}
-#form-message{font-size:14px;margin-top:13px;min-height:20px}
-.testimonials{background:#fff}
-.review{background:var(--pale)}
-.stars{color:#e5a500;letter-spacing:3px;margin-bottom:12px}
-.contact-box{background:var(--pale);padding:27px;border-radius:12px}
-footer{background:var(--navy);color:#d8e5ef;text-align:center;padding:32px 0}
-footer .logo{color:#fff}
-footer p{font-size:13px;margin-top:8px}
-.notice{font-size:12px;color:#64788a;margin-top:12px}
-@media(max-width:850px){
- .menu-btn{display:block}
- .nav-links{display:none;position:absolute;top:76px;left:0;width:100%;background:#fff;padding:20px 5%;box-shadow:0 12px 18px rgba(0,0,0,.08);flex-direction:column;align-items:stretch;gap:18px}
- .nav-links.open{display:flex}
- .nav-links .nav-cta{display:inline-block;text-align:center}
- .hero-grid,.about-grid,.appointment-grid,.contact-grid{grid-template-columns:1fr}
- .hero-photo{height:350px}
- .about-photo{height:320px}
- .cards{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:560px){
- section{padding:62px 0}
- .hero{padding:55px 0}
- .cards{grid-template-columns:1fr}
- .stats{gap:20px}
- .stats strong{font-size:21px}
- form{padding:22px}
- .hero-photo{height:290px}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MediCare Hospital — compassionate, modern healthcare for you and your family.">
+  <title>MediCare Hospital | Healthcare</title>
+  <style>
+    :root {
+      --blue: #0879c9;
+      --blue-dark: #075b98;
+      --navy: #12304a;
+      --pale: #eff8ff;
+      --text: #526579;
+      --white: #fff;
+      --shadow: 0 12px 35px rgba(18, 48, 74, .09)
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--navy);
+      line-height: 1.6
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    button,
+    input,
+    select {
+      font: inherit
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto
+    }
+
+    section {
+      padding: 82px 0
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: #fff;
+      box-shadow: 0 2px 14px rgba(0, 0, 0, .06)
+    }
+
+    nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--navy)
+    }
+
+    .logo span {
+      color: var(--blue)
+    }
+
+    .logo b {
+      color: var(--blue);
+      margin-right: 7px
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      list-style: none
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 700
+    }
+
+    .nav-links a:hover {
+      color: var(--blue)
+    }
+
+    .nav-links .nav-cta {
+      background: var(--blue);
+      color: white;
+      padding: 11px 17px;
+      border-radius: 7px
+    }
+
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: none;
+      font-size: 26px;
+      color: var(--navy);
+      cursor: pointer
+    }
+
+    .hero {
+      background: linear-gradient(115deg, #eff8ff, #dff1ff);
+      padding: 70px 0
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 55px;
+      align-items: center
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase
+    }
+
+    .hero h1 {
+      font-size: clamp(39px, 5.2vw, 62px);
+      line-height: 1.1;
+      margin: 17px 0;
+      color: var(--navy)
+    }
+
+    .hero h1 span {
+      color: var(--blue)
+    }
+
+    .hero p {
+      color: var(--text);
+      max-width: 550px;
+      margin-bottom: 25px
+    }
+
+    .actions {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 13px 20px;
+      border: 2px solid var(--blue);
+      border-radius: 7px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .2s
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: #fff
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-dark);
+      border-color: var(--blue-dark)
+    }
+
+    .btn-outline {
+      color: var(--blue)
+    }
+
+    .btn-outline:hover {
+      background: var(--blue);
+      color: #fff
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: var(--shadow)
+    }
+
+    .stats {
+      display: flex;
+      gap: 35px;
+      margin-top: 35px;
+      flex-wrap: wrap
+    }
+
+    .stats strong {
+      display: block;
+      font-size: 24px;
+      color: var(--blue)
+    }
+
+    .stats small {
+      color: var(--text)
+    }
+
+    .section-head {
+      text-align: center;
+      margin: 0 auto 42px;
+      max-width: 650px
+    }
+
+    .section-head h2,
+    .about-copy h2,
+    .appointment-copy h2 {
+      font-size: clamp(28px, 3.5vw, 38px);
+      line-height: 1.2;
+      margin: 10px 0;
+      color: var(--navy)
+    }
+
+    .section-head p,
+    .muted {
+      color: var(--text)
+    }
+
+    .about-grid,
+    .appointment-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center
+    }
+
+    .about-photo {
+      width: 100%;
+      height: 390px;
+      object-fit: cover;
+      border-radius: 15px
+    }
+
+    .checks {
+      list-style: none;
+      margin: 22px 0
+    }
+
+    .checks li {
+      margin: 10px 0;
+      color: var(--text)
+    }
+
+    .checks li:before {
+      content: "✓";
+      color: var(--blue);
+      font-weight: 900;
+      margin-right: 10px
+    }
+
+    .services {
+      background: var(--pale)
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e4edf5;
+      padding: 26px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(18, 48, 74, .035);
+      transition: .2s
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow)
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: #e5f4ff;
+      color: var(--blue);
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      margin-bottom: 16px
+    }
+
+    .card h3 {
+      margin-bottom: 8px
+    }
+
+    .card p {
+      color: var(--text);
+      font-size: 14px;
+      margin-bottom: 12px
+    }
+
+    .card a {
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 14px
+    }
+
+    .doctor img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 9px;
+      margin-bottom: 13px
+    }
+
+    .doctor {
+      text-align: center
+    }
+
+    .doctor p {
+      color: var(--blue);
+      font-size: 14px
+    }
+
+    .appointment {
+      background: var(--pale)
+    }
+
+    .appointment-copy p {
+      color: var(--text);
+      margin: 15px 0
+    }
+
+    .contact-line {
+      margin-top: 12px;
+      color: var(--text)
+    }
+
+    .contact-line strong {
+      color: var(--blue)
+    }
+
+    form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 13px;
+      box-shadow: var(--shadow)
+    }
+
+    form h3 {
+      font-size: 23px;
+      margin-bottom: 17px
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      margin: 12px 0 5px
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d5e0e9;
+      border-radius: 6px;
+      background: #fff;
+      color: var(--navy)
+    }
+
+    input:focus,
+    select:focus {
+      outline: 2px solid #b8e0ff;
+      border-color: var(--blue)
+    }
+
+    form button {
+      width: 100%;
+      margin-top: 18px
+    }
+
+    #form-message {
+      font-size: 14px;
+      margin-top: 13px;
+      min-height: 20px
+    }
+
+    .testimonials {
+      background: #fff
+    }
+
+    .review {
+      background: var(--pale)
+    }
+
+    .stars {
+      color: #e5a500;
+      letter-spacing: 3px;
+      margin-bottom: 12px
+    }
+
+    .contact-box {
+      background: var(--pale);
+      padding: 27px;
+      border-radius: 12px
+    }
+
+    footer {
+      background: var(--navy);
+      color: #d8e5ef;
+      text-align: center;
+      padding: 32px 0
+    }
+
+    footer .logo {
+      color: #fff
+    }
+
+    footer p {
+      font-size: 13px;
+      margin-top: 8px
+    }
+
+    .notice {
+      font-size: 12px;
+      color: #64788a;
+      margin-top: 12px
+    }
+
+    @media(max-width:850px) {
+      .menu-btn {
+        display: block
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 20px 5%;
+        box-shadow: 0 12px 18px rgba(0, 0, 0, .08);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px
+      }
+
+      .nav-links.open {
+        display: flex
+      }
+
+      .nav-links .nav-cta {
+        display: inline-block;
+        text-align: center
+      }
+
+      .hero-grid,
+      .about-grid,
+      .appointment-grid,
+      .contact-grid {
+        grid-template-columns: 1fr
+      }
+
+      .hero-photo {
+        height: 350px
+      }
+
+      .about-photo {
+        height: 320px
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media(max-width:560px) {
+      section {
+        padding: 62px 0
+      }
+
+      .hero {
+        padding: 55px 0
+      }
+
+      .cards {
+        grid-template-columns: 1fr
+      }
+
+      .stats {
+        gap: 20px
+      }
+
+      .stats strong {
+        font-size: 21px
+      }
+
+      form {
+        padding: 22px
+      }
+
+      .hero-photo {
+        height: 290px
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header>
- <nav class="container" aria-label="Main navigation">
-  <a class="logo" href="#home"><b>✚</b>MediCare<span>.</span></a>
-  <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">☰</button>
-  <ul class="nav-links" id="navLinks">
-   <li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#doctors">Doctors</a></li><li><a href="#contact">Contact</a></li>
-   <li><a class="nav-cta" href="#appointment">Book Appointment</a></li>
-  </ul>
- </nav>
-</header>
+  <header>
+    <nav class="container" aria-label="Main navigation">
+      <a class="logo" href="#home"><b>✚</b>MediCare<span>.</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#doctors">Doctors</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="nav-cta" href="#appointment">Book Appointment</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<main>
-<section class="hero" id="home">
- <div class="container hero-grid">
-  <div>
-   <span class="eyebrow">Your health, our priority</span>
-   <h1>Better care for a <span>healthier life.</span></h1>
-   <p>Compassionate care, experienced medical professionals and modern facilities — supporting you and your family at every step.</p>
-   <div class="actions"><a class="btn btn-primary" href="#appointment">Book an appointment →</a><a class="btn btn-outline" href="#services">Explore services</a></div>
-   <div class="stats"><div><strong>15+</strong><small>Years of care</small></div><div><strong>50+</strong><small>Specialists</small></div><div><strong>10k+</strong><small>Patients served</small></div></div>
-  </div>
-  <img class="hero-photo" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1000&auto=format&fit=crop" alt="Doctor in a white coat">
- </div>
-</section>
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Your health, our priority</span>
+          <h1>Better care for a <span>healthier life.</span></h1>
+          <p>Compassionate care, experienced medical professionals and modern facilities — supporting you and your
+            family at every step.</p>
+          <div class="actions"><a class="btn btn-primary" href="#appointment">Book an appointment →</a><a
+              class="btn btn-outline" href="#services">Explore services</a></div>
+          <div class="stats">
+            <div><strong>15+</strong><small>Years of care</small></div>
+            <div><strong>50+</strong><small>Specialists</small></div>
+            <div><strong>10k+</strong><small>Patients served</small></div>
+          </div>
+        </div>
+        <img class="hero-photo"
+          src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1000&auto=format&fit=crop"
+          alt="Doctor in a white coat">
+      </div>
+    </section>
 
-<section id="about">
- <div class="container about-grid">
-  <img class="about-photo" src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1000&auto=format&fit=crop" alt="Bright modern hospital interior">
-  <div class="about-copy"><span class="eyebrow">About MediCare</span><h2>Healthcare built around you.</h2><p class="muted">We believe quality healthcare starts with listening. Our care team works to make every visit clear, comfortable and centred on the patient.</p>
-   <ul class="checks"><li>Experienced healthcare professionals</li><li>Modern facilities and diagnostic support</li><li>Patient-focused care and guidance</li><li>Emergency support available around the clock</li></ul>
-   <a class="btn btn-primary" href="#contact">Contact our team</a>
-  </div>
- </div>
-</section>
+    <section id="about">
+      <div class="container about-grid">
+        <img class="about-photo"
+          src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1000&auto=format&fit=crop"
+          alt="Bright modern hospital interior">
+        <div class="about-copy"><span class="eyebrow">About MediCare</span>
+          <h2>Healthcare built around you.</h2>
+          <p class="muted">We believe quality healthcare starts with listening. Our care team works to make every visit
+            clear, comfortable and centred on the patient.</p>
+          <ul class="checks">
+            <li>Experienced healthcare professionals</li>
+            <li>Modern facilities and diagnostic support</li>
+            <li>Patient-focused care and guidance</li>
+            <li>Emergency support available around the clock</li>
+          </ul>
+          <a class="btn btn-primary" href="#contact">Contact our team</a>
+        </div>
+      </div>
+    </section>
 
-<section class="services" id="services">
- <div class="container"><div class="section-head"><span class="eyebrow">What we do</span><h2>Our medical services</h2><p>Explore our key departments and find the right care for your needs.</p></div>
-  <div class="cards">
-   <article class="card"><div class="card-icon">♡</div><h3>Cardiology</h3><p>Heart health assessments, consultation and ongoing care.</p><a href="#appointment">Request a visit →</a></article>
-   <article class="card"><div class="card-icon">✧</div><h3>Neurology</h3><p>Assessment and care for brain and nervous system conditions.</p><a href="#appointment">Request a visit →</a></article>
-   <article class="card"><div class="card-icon">✚</div><h3>General Medicine</h3><p>Routine checkups, preventive care and common health concerns.</p><a href="#appointment">Request a visit →</a></article>
-   <article class="card"><div class="card-icon">☼</div><h3>Paediatrics</h3><p>Healthcare and wellness support for babies and children.</p><a href="#appointment">Request a visit →</a></article>
-   <article class="card"><div class="card-icon">⌁</div><h3>Orthopaedics</h3><p>Care for bones, joints, muscles and mobility concerns.</p><a href="#appointment">Request a visit →</a></article>
-   <article class="card"><div class="card-icon">＋</div><h3>Emergency Care</h3><p>Emergency services for urgent medical situations.</p><a href="#contact">Contact us →</a></article>
-  </div>
- </div>
-</section>
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">What we do</span>
+          <h2>Our medical services</h2>
+          <p>Explore our key departments and find the right care for your needs.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon">♡</div>
+            <h3>Cardiology</h3>
+            <p>Heart health assessments, consultation and ongoing care.</p><a href="#appointment">Request a visit →</a>
+          </article>
+          <article class="card">
+            <div class="card-icon">✧</div>
+            <h3>Neurology</h3>
+            <p>Assessment and care for brain and nervous system conditions.</p><a href="#appointment">Request a visit
+              →</a>
+          </article>
+          <article class="card">
+            <div class="card-icon">✚</div>
+            <h3>General Medicine</h3>
+            <p>Routine checkups, preventive care and common health concerns.</p><a href="#appointment">Request a visit
+              →</a>
+          </article>
+          <article class="card">
+            <div class="card-icon">☼</div>
+            <h3>Paediatrics</h3>
+            <p>Healthcare and wellness support for babies and children.</p><a href="#appointment">Request a visit →</a>
+          </article>
+          <article class="card">
+            <div class="card-icon">⌁</div>
+            <h3>Orthopaedics</h3>
+            <p>Care for bones, joints, muscles and mobility concerns.</p><a href="#appointment">Request a visit →</a>
+          </article>
+          <article class="card">
+            <div class="card-icon">＋</div>
+            <h3>Emergency Care</h3>
+            <p>Emergency services for urgent medical situations.</p><a href="#contact">Contact us →</a>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<section id="doctors">
- <div class="container"><div class="section-head"><span class="eyebrow">Our specialists</span><h2>Meet our care team</h2><p>Sample profiles for this demonstration website.</p></div>
-  <div class="cards">
-   <article class="card doctor"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=700&auto=format&fit=crop" alt="Doctor portrait"><h3>Dr. John Smith</h3><p>Cardiology</p></article>
-   <article class="card doctor"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=700&auto=format&fit=crop" alt="Doctor portrait"><h3>Dr. Sarah Johnson</h3><p>Neurology</p></article>
-   <article class="card doctor"><img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=700&auto=format&fit=crop" alt="Doctor portrait"><h3>Dr. Michael Brown</h3><p>General Medicine</p></article>
-  </div>
- </div>
-</section>
+    <section id="doctors">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">Our specialists</span>
+          <h2>Meet our care team</h2>
+          <p>Sample profiles for this demonstration website.</p>
+        </div>
+        <div class="cards">
+          <article class="card doctor"><img
+              src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=700&auto=format&fit=crop"
+              alt="Doctor portrait">
+            <h3>Dr. John Smith</h3>
+            <p>Cardiology</p>
+          </article>
+          <article class="card doctor"><img
+              src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=700&auto=format&fit=crop"
+              alt="Doctor portrait">
+            <h3>Dr. Sarah Johnson</h3>
+            <p>Neurology</p>
+          </article>
+          <article class="card doctor"><img
+              src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=700&auto=format&fit=crop"
+              alt="Doctor portrait">
+            <h3>Dr. Michael Brown</h3>
+            <p>General Medicine</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<section class="appointment" id="appointment">
- <div class="container appointment-grid">
-  <div class="appointment-copy"><span class="eyebrow">Plan your visit</span><h2>Book an appointment</h2><p>Complete the form and this demo page will confirm that your request has been entered. No information is sent to a hospital or stored on a server.</p>
-   <p class="contact-line"><strong>Phone:</strong> +91 98765 43210</p><p class="contact-line"><strong>Email:</strong> info@example.com</p>
-  </div>
-  <form id="appointmentForm">
-   <h3>Appointment request</h3>
-   <label for="fullName">Full name</label><input id="fullName" name="fullName" type="text" placeholder="Enter your name" autocomplete="name" required>
-   <label for="email">Email address</label><input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
-   <label for="phone">Phone number</label><input id="phone" name="phone" type="tel" placeholder="10-digit mobile number" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" required>
-   <label for="department">Department</label><select id="department" name="department" required><option value="">Select a department</option><option>Cardiology</option><option>Neurology</option><option>General Medicine</option><option>Paediatrics</option><option>Orthopaedics</option></select>
-   <label for="date">Preferred date</label><input id="date" name="date" type="date" required>
-   <button class="btn btn-primary" type="submit">Submit request</button>
-   <p id="formMessage" role="status" aria-live="polite"></p>
-   <p class="notice">Demo only — do not enter real medical or sensitive personal information.</p>
-  </form>
- </div>
-</section>
+    <section class="appointment" id="appointment">
+      <div class="container appointment-grid">
+        <div class="appointment-copy"><span class="eyebrow">Plan your visit</span>
+          <h2>Book an appointment</h2>
+          <p>Complete the form and this demo page will confirm that your request has been entered. No information is
+            sent to a hospital or stored on a server.</p>
+          <p class="contact-line"><strong>Phone:</strong> +91 98765 43210</p>
+          <p class="contact-line"><strong>Email:</strong> info@example.com</p>
+        </div>
+        <form id="appointmentForm">
+          <h3>Appointment request</h3>
+          <label for="fullName">Full name</label><input id="fullName" name="fullName" type="text"
+            placeholder="Enter your name" autocomplete="name" required>
+          <label for="email">Email address</label><input id="email" name="email" type="email"
+            placeholder="you@example.com" autocomplete="email" required>
+          <label for="phone">Phone number</label><input id="phone" name="phone" type="tel"
+            placeholder="10-digit mobile number" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" required>
+          <label for="department">Department</label><select id="department" name="department" required>
+            <option value="">Select a department</option>
+            <option>Cardiology</option>
+            <option>Neurology</option>
+            <option>General Medicine</option>
+            <option>Paediatrics</option>
+            <option>Orthopaedics</option>
+          </select>
+          <label for="date">Preferred date</label><input id="date" name="date" type="date" required>
+          <button class="btn btn-primary" type="submit">Submit request</button>
+          <p id="formMessage" role="status" aria-live="polite"></p>
+          <p class="notice">Demo only — do not enter real medical or sensitive personal information.</p>
+        </form>
+      </div>
+    </section>
 
-<section class="testimonials">
- <div class="container"><div class="section-head"><span class="eyebrow">Patient stories</span><h2>Kind words from our visitors</h2><p>Example testimonials for the website layout.</p></div>
-  <div class="cards">
-   <article class="card review"><div class="stars">★★★★★</div><p>“The staff were welcoming and explained each step clearly. The visit felt comfortable.”</p><h3>Rahul K.</h3></article>
-   <article class="card review"><div class="stars">★★★★★</div><p>“The team was helpful and professional. Booking a visit was straightforward.”</p><h3>Priya S.</h3></article>
-   <article class="card review"><div class="stars">★★★★★</div><p>“A clean, calm environment and a caring team. Thank you for your support.”</p><h3>Arun M.</h3></article>
-  </div>
- </div>
-</section>
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">Patient stories</span>
+          <h2>Kind words from our visitors</h2>
+          <p>Example testimonials for the website layout.</p>
+        </div>
+        <div class="cards">
+          <article class="card review">
+            <div class="stars">★★★★★</div>
+            <p>“The staff were welcoming and explained each step clearly. The visit felt comfortable.”</p>
+            <h3>Rahul K.</h3>
+          </article>
+          <article class="card review">
+            <div class="stars">★★★★★</div>
+            <p>“The team was helpful and professional. Booking a visit was straightforward.”</p>
+            <h3>Priya S.</h3>
+          </article>
+          <article class="card review">
+            <div class="stars">★★★★★</div>
+            <p>“A clean, calm environment and a caring team. Thank you for your support.”</p>
+            <h3>Arun M.</h3>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<section id="contact">
- <div class="container contact-grid">
-  <div><span class="eyebrow">Get in touch</span><h2 style="font-size:36px;margin:10px 0">We're here to help.</h2><p class="muted">Contact our team for general enquiries and appointment information.</p>
-   <p class="contact-line"><strong>Address:</strong> Bangalore, Karnataka, India</p><p class="contact-line"><strong>Phone:</strong> +91 98765 43210</p><p class="contact-line"><strong>Email:</strong> info@example.com</p>
-  </div>
-  <div class="contact-box"><h3>Hospital hours</h3><p class="contact-line">Monday – Saturday: 8:00 AM – 9:00 PM</p><p class="contact-line">Sunday: 9:00 AM – 5:00 PM</p><p class="contact-line"><strong>Emergency:</strong> Contact local emergency services for urgent help.</p></div>
- </div>
-</section>
-</main>
+    <section id="contact">
+      <div class="container contact-grid">
+        <div><span class="eyebrow">Get in touch</span>
+          <h2 style="font-size:36px;margin:10px 0">We're here to help.</h2>
+          <p class="muted">Contact our team for general enquiries and appointment information.</p>
+          <p class="contact-line"><strong>Address:</strong> Bangalore, Karnataka, India</p>
+          <p class="contact-line"><strong>Phone:</strong> +91 98765 43210</p>
+          <p class="contact-line"><strong>Email:</strong> info@example.com</p>
+        </div>
+        <div class="contact-box">
+          <h3>Hospital hours</h3>
+          <p class="contact-line">Monday – Saturday: 8:00 AM – 9:00 PM</p>
+          <p class="contact-line">Sunday: 9:00 AM – 5:00 PM</p>
+          <p class="contact-line"><strong>Emergency:</strong> Contact local emergency services for urgent help.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<footer><div class="container"><a class="logo" href="#home">✚ MediCare<span>.</span></a><p>© <span id="year"></span> MediCare Hospital. Demo website for learning purposes.</p><p>Replace sample contact details, doctor profiles and testimonials before publishing.</p></div></footer>
+  <footer>
+    <div class="container"><a class="logo" href="#home">✚ MediCare<span>.</span></a>
+      <p>© <span id="year"></span> MediCare Hospital. Demo website for learning purposes.</p>
+      <p>Replace sample contact details, doctor profiles and testimonials before publishing.</p>
+    </div>
+  </footer>
 
-<script>
-const menuBtn = document.getElementById('menuBtn');
-const navLinks = document.getElementById('navLinks');
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
 
-menuBtn.addEventListener('click', () => {
-  const open = navLinks.classList.toggle('open');
-  menuBtn.setAttribute('aria-expanded', String(open));
-  menuBtn.textContent = open ? '✕' : '☰';
-});
+    menuBtn.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.textContent = open ? '✕' : '☰';
+    });
 
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
-    menuBtn.textContent = '☰';
-  });
-});
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.textContent = '☰';
+      });
+    });
 
-const dateInput = document.getElementById('date');
-const today = new Date();
-const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
-  .toISOString().split('T')[0];
-dateInput.min = localToday;
+    const dateInput = document.getElementById('date');
+    const today = new Date();
+    const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
+      .toISOString().split('T')[0];
+    dateInput.min = localToday;
 
-document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-document.getElementById('appointmentForm').addEventListener('submit', event => {
-  event.preventDefault();
-  const form = event.currentTarget;
-  const message = document.getElementById('formMessage');
+    document.getElementById('appointmentForm').addEventListener('submit', event => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const message = document.getElementById('formMessage');
 
-  if (!form.reportValidity()) return;
+      if (!form.reportValidity()) return;
 
-  const phone = document.getElementById('phone').value.trim();
-  if (!/^[0-9]{10}$/.test(phone)) {
-    message.style.color = '#b42318';
-    message.textContent = 'Please enter a valid 10-digit phone number.';
-    return;
-  }
+      const phone = document.getElementById('phone').value.trim();
+      if (!/^[0-9]{10}$/.test(phone)) {
+        message.style.color = '#b42318';
+        message.textContent = 'Please enter a valid 10-digit phone number.';
+        return;
+      }
 
-  message.style.color = '#16713b';
-  message.textContent = 'Thank you!        Your demo appointment request has been completed. No booking was sent or saved.';
-  form.reset();
-  dateInput.min = localToday; 
-});
-</script>
+      message.style.color = '#16713b';
+      message.textContent = 'Thank you!        Your demo appointment request has been completed.tstingsfhs No booking was sent or saved.';
+      form.reset();
+      dateInput.min = localToday;
+    });
+  </script>
 </body>
+
 </html>
